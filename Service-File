@@ -5,7 +5,7 @@ After=network-online.target
 
 [Service]
 User=root
-ExecStart=/usr/local/bin/xray-core/xray run -config /usr/local/etc/xray-core/config.json
+ExecStart=/usr/local/bin/xray run -config /etc/xray-core/config.json
 Restart=on-failure
 RestartPreventExitStatus=23
 LimitNPROC=10000
