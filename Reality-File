@@ -1,0 +1,68 @@
+{
+  "log": {
+    "access": "/usr/local/bin/xray-core/access.log",
+    "error": "/usr/local/bin/xray-core/error.log",
+    "loglevel": "warning",
+    "dnsLog": false
+  }
+    "inbounds": [
+      {
+        "listen": "::",
+        "port": ,
+        "protocol": "vless",
+        "settings": {
+          "users": [
+            {
+              "id": ""
+            }
+          ],
+          "decryption": "none"
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "xhttpSettings": {
+              "path": "",
+              "mode": "auto"
+          },
+          "security": "reality",
+          "realitySettings": {
+            "target": "example.com:443",
+            "serverNames": [""],
+            "privateKey": "",
+            "shortIds": [""],
+            "mldsa65Seed": ""
+          },
+          "sockopt": {
+            "tcpFastOpen": true,
+            "domainStrategy": "UseIPv4",
+            "tcpcongestion": "bbr",
+            "tcpMptcp": true
+          }
+        },
+        "tag": "vless-in",
+        "sniffing": {
+          "enabled": true,
+          "destOverride": ["http","tls"]
+        },
+        "routing": {
+          "domainStrategy": "AsIs",
+          "rules": [
+            {
+              "protocol": ["quic"],
+              "outboundTag": "block"
+            }
+          ]
+        }
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      },
+      {
+        "protocol": "blackhole",
+        "tag": "block"
+      }
+    ]
+}
