@@ -1,7 +1,7 @@
 {
   "log": {
-    "access": "/usr/local/bin/xray-core/access.log",
-    "error": "/usr/local/bin/xray-core/error.log",
+    "access": "/etc/xray-core/access.log",
+    "error": "/etc/xray-core/error.log",
     "loglevel": "warning",
     "dnsLog": false
   }
