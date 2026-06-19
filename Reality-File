@@ -4,7 +4,7 @@
     "error": "/etc/xray-core/error.log",
     "loglevel": "warning",
     "dnsLog": false
-  }
+  },
     "inbounds": [
       {
         "listen": "::",
@@ -35,8 +35,7 @@
           "sockopt": {
             "tcpFastOpen": true,
             "domainStrategy": "UseIPv4",
-            "tcpcongestion": "bbr",
-            "tcpMptcp": true
+            "tcpcongestion": "bbr"
           }
         },
         "tag": "vless-in",
